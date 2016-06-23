@@ -9,6 +9,14 @@ using System.Web.UI.WebControls;
 using COMP2007_S2016_MidTerm_200277628.Models;
 using System.Web.ModelBinding;
 
+/**
+  * @author: Yandong Wang 200277628
+  * @date: June 23, 2016
+  * @version： 0.0.3
+  * @file description: create a web app that show the todo list and list details
+  */
+
+
 namespace COMP2007_S2016_MidTerm_200277628
 {
     public partial class TodoDetails : System.Web.UI.Page
@@ -21,6 +29,14 @@ namespace COMP2007_S2016_MidTerm_200277628
             }
         }
 
+        /**
+         * <summary>
+         * This method gets the todo data from the DB
+         * </summary>
+         * 
+         * @method GetTodos
+         * @returns {void}
+         */
         protected void GetTodo()
         {
             // populate teh form with existing data from the database
@@ -29,12 +45,12 @@ namespace COMP2007_S2016_MidTerm_200277628
             // connect to the EF DB
             using (TodoConnection db = new TodoConnection())
             {
-                // populate a Todo object instance with the StudentID from the URL Parameter
+                // populate a Todo object instance with the TodoID from the URL Parameter
                 Todo updatedTodo = (from todo in db.Todos
                                        where todo.TodoID == TodoID
                                        select todo).FirstOrDefault();
 
-                // map the student properties to the form controls
+                // map the todo properties to the form controls
                 if (updatedTodo != null)
                 {
                     TodoNameTextBox.Text = updatedTodo.TodoName;
@@ -49,12 +65,16 @@ namespace COMP2007_S2016_MidTerm_200277628
             // Redirect back to Todos page
             Response.Redirect("~/TodosList.aspx");
         }
-
-        protected void SaveButton_Click(object sender, EventArgs e)
-        {
-            
-        }
-
+        /**
+         * <summary>
+         * This event handler allows save the data for the TodosList page
+         * </summary>
+         * 
+         * @method SaveButton_Click1
+         * @param {object} sender
+         * @param {GridViewPageEventArgs} e
+         * @returns {void}
+         */
         protected void SaveButton_Click1(object sender, EventArgs e)
         {
             // Use EF to connect to the server

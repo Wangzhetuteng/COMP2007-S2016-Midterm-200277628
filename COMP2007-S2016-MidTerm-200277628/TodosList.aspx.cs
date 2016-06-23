@@ -10,13 +10,21 @@ using COMP2007_S2016_MidTerm_200277628.Models;
 using System.Web.ModelBinding;
 using System.Linq.Dynamic;
 
+
+/**
+  * @author: Yandong Wang 200277628
+  * @date: June 23, 2016
+  * @version： 0.0.3
+  * @file description: create a web app that show the todo list and list details
+  */
+
 namespace COMP2007_S2016_MidTerm_200277628
 {
     public partial class TodosList : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // if loading the page for the first time, populate the student grid
+            // if loading the page for the first time, populate the todo grid
             if (!IsPostBack)
             {
                 Session["SortColumn"] = "TodoID"; // default sort column
@@ -28,10 +36,10 @@ namespace COMP2007_S2016_MidTerm_200277628
 
         /**
          * <summary>
-         * This method gets the student data from the DB
+         * This method gets the todo data from the DB
          * </summary>
          * 
-         * @method GetStudents
+         * @method GetTodos
          * @returns {void}
          */
         protected void GetTodos()
@@ -90,7 +98,7 @@ namespace COMP2007_S2016_MidTerm_200277628
 
         /**
          * <summary>
-         * This event handler allows pagination to occur for the Students page
+         * This event handler allows pagination to occur for the TodosList page
          * </summary>
          * 
          * @method TodosGridView_PageIndexChanging
@@ -107,6 +115,16 @@ namespace COMP2007_S2016_MidTerm_200277628
             this.GetTodos();
         }
 
+        /**
+         * <summary>
+         * This event handler allows change SelectedIndex for the TodosList page
+         * </summary>
+         * 
+         * @method PageSizeDropDownList_SelectedIndexChanged
+         * @param {object} sender
+         * @param {GridViewPageEventArgs} e
+         * @returns {void}
+         */
         protected void PageSizeDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Set the new Page size
@@ -115,7 +133,16 @@ namespace COMP2007_S2016_MidTerm_200277628
             // refresh the grid
             this.GetTodos();
         }
-
+        /**
+         * <summary>
+         * This event handler allows sort for the TodosList page
+         * </summary>
+         * 
+         * @method TodosGridView_Sorting
+         * @param {object} sender
+         * @param {GridViewPageEventArgs} e
+         * @returns {void}
+         */
         protected void TodosGridView_Sorting(object sender, GridViewSortEventArgs e)
         {
             // get the column to sorty by
@@ -127,7 +154,16 @@ namespace COMP2007_S2016_MidTerm_200277628
             // toggle the direction
             Session["SortDirection"] = Session["SortDirection"].ToString() == "ASC" ? "DESC" : "ASC";
         }
-
+        /**
+         * <summary>
+         * This event handler allows RowDataBound for the TodosList page
+         * </summary>
+         * 
+         * @method TodosGridView_RowDataBound
+         * @param {object} sender
+         * @param {GridViewPageEventArgs} e
+         * @returns {void}
+         */
         protected void TodosGridView_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (IsPostBack)

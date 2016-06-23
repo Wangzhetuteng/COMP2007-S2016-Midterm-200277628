@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 /**
- * @author: Tom Tsiliopoulos
+ * @author: Yandong Wang
  * @date: June 23, 2016
  * @version: 0.0.3 - updated SetActivePage Method to include Todo List
  */
