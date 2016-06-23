@@ -131,7 +131,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="TodoDetails.aspx" />
-    <Content Include="TodoList.aspx" />
+    <Content Include="TodosList.aspx" />
     <Content Include="User_Controls\Jumbotron.ascx" />
     <Content Include="User_Controls\Navbar.ascx" />
     <Content Include="Scripts\app.js" />
@@ -175,17 +175,16 @@
     </Compile>
     <Compile Include="TodoDetails.aspx.cs">
       <DependentUpon>TodoDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="TodoDetails.aspx.designer.cs">
       <DependentUpon>TodoDetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="TodoList.aspx.cs">
-      <DependentUpon>TodoList.aspx</DependentUpon>
+    <Compile Include="TodosList.aspx.cs">
+      <DependentUpon>TodosList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="TodoList.aspx.designer.cs">
-      <DependentUpon>TodoList.aspx</DependentUpon>
+    <Compile Include="TodosList.aspx.designer.cs">
+      <DependentUpon>TodosList.aspx</DependentUpon>
     </Compile>
     <Compile Include="User_Controls\Jumbotron.ascx.cs">
       <DependentUpon>Jumbotron.ascx</DependentUpon>
